@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width-device-width , initial-scale=1.0">
+  <meta name="description" content="Omni food is the best site for food. Deliver now from world's no-1">
+  <title>Document</title>
+  <!--for favicon icon-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /*****************************************
+  orange base color: #e67e22
+          BASIC STEP
+*****************************************/
+
+    * {
+      /*this is for all*/
+      margin: 0;
+      padding: 0;
+      box-sizing: 0;
+    }
+
+    ::selection {
+      color: white;
+      background: #e67e22;
+    }
+
+    html,
+    body {
+      margin: 0px;
+      font-family: Roboto, RobotoDraft, Halvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 100;
+      text-rendering: optimizeLegibility;
+      background-color: whitesmoke;
+      line-height: 150%;
+      overflow-x: hidden;
+    }
+
+    .clearFix {
+      zoom: 1;
+    }
+
+    .clearFix:after {
+      /*use these classes to clear the float*/
+      content: ".";
+      clear: both;
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+
+    /*****************************************
+          REUSEABLE COMPONENTS
+*****************************************/
+
+
+    .row {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 66px 0;
+    }
+
+    /*****************************************
+          HEADER
+*****************************************/
+
+    header {
+      background-image: linear-gradient(90deg, rgb(0, 0, 10, 0.7), rgb(0, 0, 10, 0.7)), url("http://www.webdesigncourse.co/omnifood/resources/css/img/hero-min.jpg");
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      padding: 8px;
+      height: 100vh;
+    }
+
+    .hero-text-box {
+      position: absolute;
+      width: 1140px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /*half from top and left positoning*/
+    }
+
+    .logo {
+      height: 100px;
+      width: auto;
+      float: left;
+      margin-top: 15px;
+      border-radius: 50%;
+    }
+
+    .logo-black {
+      height: 50px;
+      width: auto;
+      float: left;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+
+    .logo-black {
+      display: none;
+    }
+
+    .logo:hover {
+      box-shadow: 0px 0px 5px 1px rgb(0, 0, 30, 0.6);
+    }
+
+    .main-nav {
+      float: right;
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .main-nav li {
+      display: inline;
+      margin-left: 40px;
+    }
+
+    .main-nav li a:link,
+    .main-nav li a:visited {
+      color: white;
+      border-bottom: 20%;
+      text-decoration: none;
+      padding: 4px 0px;
+      text-transform: uppercase;
+      font-size: 90%;
+      /*equalto18/20=90(20pxisbasefont)*/
+      transition: border-bottom 0.2s ease;
+      -webkit-transition: border-bottom 0.2s ease;
+      -moz-transition: border-bottom 0.2s ease;
+      -ms-transition: border-bottom 0.2s ease;
+      -o-transition: border-bottom 0.2s ease;
+    }
+
+    .main-nav li a:hover,
+    .main-nav li a:active {
+      border-bottom: 4px solid #e67e22;
+      border-bottom-width: 50%;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      color: #e67e22;
+    }
+
+    /*the mobile nav*/
+    .mobile-nav-icon img {
+      height: 20px;
+      float: right;
+      margin-top: 30px;
+      filter: invert(23);
+      -webkit-filter: invert(23);
+      display: none;
+      cursor: pointer;
+    }
+
+    /*STICKY NAV*/
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgb(246, 246, 246);
+      box-shadow: 0px 2px 2px rgb(212, 211, 211);
+      z-index: 999;
+      /*vertical stack of this elem on top of every elem*/
+    }
+
+    .sticky .main-nav {
+      margin-top: 18px;
+    }
+
+    .sticky .main-nav li a:link,
+    .sticky .main-nav li a:visited {
+      padding: 15px 0px;
+      color: #555;
+    }
+
+    .sticky .logo {
+      display: none;
+    }
+
+    .sticky .logo-black {
+      display: block;
+    }
+
+
+    /*****************************************
+            HEADINGS
+*****************************************/
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ffff;
+      font-size: 200%;
+      margin-top: 0;
+      line-height: 35px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      display: block;
+      font-size: 180%;
+      word-spacing: 2px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-size: 110%;
+      margin-bottom: 15px;
+    }
+
+    h2:after {
+      display: block;
+      height: 2px;
+      background-color: #e67e22;
+      content: " ";
+      width: 100px;
+      margin: 0 auto;
+      margin-top: 30px;
+    }
+
+    /********paragraphs***********/
+
+    .long-copy {
+      line-height: 145%;
+      width: 70%;
+      margin-left: 15%;
+    }
+
+    /*****************************************
+          BUTTONS
+*****************************************/
+
+    .btn-manual:link,
+    .btn-manual:visited,
+    input[type="submit"] {
+      display: inline;
+      padding: 10px 30px;
+      /*(top/bottom  left/right)*/
+      font-weight: 300;
+      text-decoration: none;
+      border-radius: 200px;
+      transition: 0.6s;
+    }
+
+    .btn-full:link,
+    .btn-full:visited,
+    input[type="submit"] {
+      background: #e67e22;
+      border: 2px solid #e67e22;
+      color: white;
+      margin-right: 15px;
+    }
+
+    .btn-ghost:link,
+    .btn-ghost:visited {
+      border: 2px solid #e67e22;
+      color: #e67e22;
+    }
+
+    .btn-ghost:hover,
+    .btn-ghost:active {
+      color: white;
+      background: #e67e22;
+      box-shadow: 0px 0px 5px 2px rgb(0, 0, 30, 0.6);
+      border: 2px solid #e67e22;
+    }
+
+    .btn-full:hover,
+    .btn-full:active,
+    input[type="submit"]:hover {
+      background: #bf6516;
+      border-color: #bf6516;
+      cursor: pointer;
+      box-shadow: 0px 0px 5px 2px rgb(0, 0, 30, 0.6);
+    }
+
+    /*****************************************
+          The Center Grids
+*****************************************/
+    .span-1-of-4 {
+      width: 21%;
+      padding: 1%;
+    }
+
+    .span-2-of-4 p {
+      font-size: 90%;
+      line-height: 145%;
+    }
+
+    .span-3-of-4 {
+      width: 30.6%;
+    }
+
+    .span-4-of-4 {
+      width: 100%;
+      text-align: center;
+    }
+
+    .col {
+      display: block;
+      float: left;
+      margin: 1% 0 1% 1.6%;
+    }
+
+    .col:first-child {
+      margin-left: 0;
+    }
+
+    .section-features .long-copy {
+      margin-bottom: 40px;
+    }
+
+    .section-features .col {
+      margin-bottom: 0px;
+    }
+
+    /***********for the icons**********/
+
+    .icon-big {
+      display: block;
+      color: #e67e22;
+      margin: 20px 20px;
+      margin-left: 30%;
+      border-radius: 50%;
+      box-shadow: 0px 0px 8px 1px #e67e22;
+      transition: 0.5s;
+    }
+
+    .icon-big:hover {
+      transform: scale(1.3);
+      transition: 0.5s;
+      box-shadow: 0px 0px 7px 1px black;
+    }
+
+    /*****************************************
+          MEALS PICS
+*****************************************/
+
+    .meals-showcase {
+      list-style: none;
+      width: 100%;
+    }
+
+    .meals-showcase li {
+      display: block;
+      float: left;
+      width: 25%;
+      margin-bottom: 0px;
+    }
+
+    .meal-photo {
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    .meal-photo img {
+      width: 100%;
+      height: auto;
+      transform: scale(1.15);
+      opacity: 0.7;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .meal-photo img:hover {
+      transform: scale(1.06);
+      opacity: 1;
+    }
+
+    /*****************************************
+          THREE STEPS AND PHONE
+*****************************************/
+
+    .steps-box:first-child {
+      text-align: right;
+      padding-right: 3%;
+      margin-top: 30px;
+    }
+
+    .steps-box:last-child {
+      padding-left: 3%;
+      margin-top: 40px;
+    }
+
+    .app-screen {
+      width: 40%;
+      margin-left: 10px;
+      height: 350px;
+    }
+
+    .span-2-of-4 {
+      width: 38%;
+    }
+
+    .work-step div {
+      color: #e67e22;
+      border: 2px solid #e67e22;
+      display: inline-block;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      padding: 4px;
+      font-size: 150%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btn-app img {
+      height: 50px;
+      width: auto;
+      margin-right: 15px;
+      margin-top: 30px;
+      box-shadow: 0px 0px 10px 2px rgba(143, 138, 138, 0.9);
+      border-radius: 10px;
+      transition: 0.5s;
+    }
+
+    .btn-app img:hover {
+      transform: scale(0.9);
+      transition: 0.5s;
+    }
+
+    .section-steps .row h2 {
+      margin-top: -50px;
+    }
+
+    .forbackground,
+    .section-steps div {
+      background-color: rgba(236, 230, 230, 0.849);
+    }
+
+    /*****************************************
+          CITIES WE ARE WORKING IN
+*****************************************/
+    .box {
+      line-height: 190%;
+    }
+
+    .box img:first-child {
+      width: 100%;
+      transition: 0.5s;
+      box-shadow: 0px 0px 10px 1px black;
+      background-color: black;
+      border-radius: 5px;
+    }
+
+    .box img:first-child:hover {
+      box-shadow: none;
+    }
+
+    .icon-small {
+      border-radius: 50%;
+      height: 22px;
+      padding: 1px;
+      margin-top: 5px;
+      margin-left: 10px;
+      margin-right: 15px;
+      box-shadow: 0px 0px 5px 1px #e67e22;
+
+      /*Secrets to align icons and text*/
+      vertical-align: middle;
+      line-height: 190%;
+      margin-top: -4px;
+    }
+
+    .box h3 {
+      margin-top: 20px;
+    }
+
+    .twitter:visited,
+    .twitter:link {
+      color: #e67e22;
+      text-decoration: none;
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid #e67e22;
+      transition: 0.2s;
+    }
+
+    .twitter:hover,
+    .twitter:active {
+      color: #555;
+      border-bottom: 1.5px solid transparent;
+    }
+
+    /*****************************************
+          CUSTOMERS TETSTIMONALS
+*****************************************/
+
+    .section-testimonal {
+      margin-top: 30%;
+      height: auto;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url("http://www.webdesigncourse.co/omnifood/resources/css/img/back-customers-min.jpg");
+      background-size: cover;
+      color: #ffff;
+      background-attachment: fixed;
+    }
+
+    .section-testimonal .span-1-of-3 {
+      width: 32.26%;
+    }
+
+    .section-testimonal .row h2 {
+      margin-bottom: 60px;
+    }
+
+    blockquote {
+      padding: 2%;
+      font-style: italic;
+      line-height: 145%;
+    }
+
+    blockquote:before {
+      content: "\201C";
+      /*code used for quotes*/
+      font-size: 500%;
+    }
+
+    cite {
+      font-size: 90%;
+      margin-top: 25px;
+    }
+
+    cite img {
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+      box-shadow: 0px 0px 10px 2px #e67e22;
+    }
+
+    /*****************************************
+          PRICING SECTION
+*****************************************/
+    .section-plans {
+      background-color: rgba(236, 230, 230, 0.849);
+    }
+
+    .tick {
+      width: 15px;
+      height: 15px;
+      padding: 4px;
+      border-bottom: 2px solid #e67e22;
+      border-radius: 50%;
+      margin-right: 15px;
+      vertical-align: middle;
+      margin-bottom: 5px;
+    }
+
+    .plan-box {
+      background-color: #ffff;
+      border-radius: 5px;
+      width: 90%;
+      margin-left: 5%;
+    }
+
+    .plan-box div {
+      padding: 15px;
+      border-bottom: 1px solid rgb(241, 241, 241);
+    }
+
+    .plan-box h3 {
+      margin-bottom: 30px;
+    }
+
+    .plan-price {
+      font-size: 300%;
+      margin-bottom: 10px;
+      font-weight: 100;
+      color: #e67e22;
+    }
+
+    .plan-price span {
+      /*we choose font 30% bcz the parent has 300% font*/
+      font-size: 30%;
+      font-weight: 300;
+    }
+
+    .plan-price-meal {
+      font-size: 90%;
+    }
+
+    .section-plans h3 {
+      font-weight: 700;
+    }
+
+    .plan-box ul {
+      list-style: none;
+    }
+
+    .plan-box ul li {
+      padding: 5px 0px;
+    }
+
+    .plan-box div a {
+      margin-left: 20.3%;
+    }
+
+    .plan-box {
+      border: 1px solid white;
+      box-shadow: 0px 0px 10px rgba(155, 146, 146, 0.9);
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+
+    .plan-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 40px 3px rgba(155, 146, 146, 0.9);
+    }
+
+    /*****************************************
+          CONTACT FORM
+*****************************************/
+    .span-2-of-3 {
+      width: 35.13%;
+    }
+
+    *:focus {
+      outline: none;
+    }
+
+    input,
+    textarea {
+      text-shadow: 0px 0px 2px #777;
+    }
+
+    /*****************************************
+          F O O T E R
+*****************************************/
+    .span-for-footer {
+      width: 49.2%;
+    }
+
+    footer .social-links img {
+      width: 20px;
+      height: auto;
+    }
+
+    footer {
+      font-size: 85%;
+      background-color: rgb(70, 67, 67);
+      color: white;
+      padding: 50px;
+    }
+
+    .footer-nav {
+      list-style-type: none;
+      float: left;
+    }
+
+    .social-links {
+      list-style: none;
+      float: right;
+    }
+
+    .footer-nav li,
+    .social-links li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .footer-nav li:last-child,
+    .social-links li:last-child {
+      margin: 0;
+    }
+
+    footer .footer-nav li a:link,
+    .footer-nav li a:visited {
+      text-decoration: none;
+      color: rgb(158, 158, 158);
+    }
+
+    footer .footer-nav li a:hover,
+    .footer-nav li a:active {
+      color: rgb(204, 202, 202);
+    }
+
+    footer p {
+      color: rgb(158, 158, 158);
+      /* margin-top: 90px; */
+      text-align: center;
+    }
+
+    /* footer .icons {
+      font-size: 30px !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      cursor: pointer !important;
+      color: red !important;
+      filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)) !important;
+    } */
+
+    .insta:hover {
+      color: #3f729b;
+    }
+
+    .sidenav-trigger i {
+      position: absolute;
+      /* margin-top: 0% !important; */
+      /* right: 0% !important; */
+      /* text-indent: 5px; */
+      font-size: 30px;
+      color: #fff;
+      /* text-shadow: 0px 0px 7px rgb(155, 152, 152); */
+    }
+
+    .background {
+      background: linear-gradient(-45deg, #FAA148, #e73c7e, #23a6d5, #0af3bd);
+      animation: grad 15s ease infinite;
+      background-size: 400%;
+    }
+
+    span[class="white-text email"]:hover {
+      color: whitesmoke !important;
+    }
+
+    @keyframes grad {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .name {
+      font-size: 20px !important;
+    }
+
+    .user-view a {
+      color: white !important;
+    }
+
+    .user-view {
+      text-align: center;
+      display: block;
+    }
+
+    .user-view img {
+      box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.4);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .icons {
+      font-size: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+      position: fixed;
+      color: rgb(141, 139, 139) !important;
+      filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+      transition: color .4s;
+    }
+
+    .sidenav .icon-group {
+      position: absolute;
+      bottom: 8% !important;
+      padding-top: 10px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .git:hover {
+      color: #211F1F !important;
+    }
+
+    .stack:hover {
+      color: #F47F24 !important;
+    }
+
+    .fb:hover {
+      color: #4267B2 !important;
+    }
+
+    .email:hover {
+      color: #D44638 !important;
+    }
+
+    .wp:hover {
+      color: #4FCE5D !important;
+    }
+
+    .pen:hover {
+      color: #211F1F !important;
+    }
+
+    .links {
+      width: 0px;
+      float: left;
+      padding: 0 !important;
+      margin-right: 50px !important;
+      bottom: 0 !important;
+      height: 0px;
+    }
+
+    .aim {
+      width: 20px;
+      color: red;
+      vertical-align: text-bottom;
+      margin-right: 3px;
+    }
+
+    .aim-text {
+      display: inline;
+      font-size: 16px !important;
+    }
+
+    .sidenav .aim-group {
+      line-height: 1.3;
+      padding: 10px;
+      /* padding-right: 15px !important; */
+      font-weight: 400;
+      font-family: "Segoe UI", "Fira Sans", sans-serif;
+    }
+
+    .carousel .carousel-item {
+      width: 100px !important;
+    }
+
+    .carousel .carousel-item img {
+      margin-top: 25%;
+    }
+
+    .images .carousel {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 30%;
+      position: absolute;
+    }
+
+    .sidenav li .project {
+      font-weight: 500;
+      font-size: 17px;
+    }
+
+    .sidenav .icon-group .bottom-text {
+      line-height: 1.2;
+      text-align: center;
+      margin-top: -2%;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    .material-tooltip {
+      font-weight: 500 !important;
+      font-size: small;
+      border-radius: 10px;
+    }
+
+    .material-icons {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    /********   LARGE DEVICES 1023 TO 1200PX   ********/
+    @media only screen and (max-width:1200px) {
+
+      /*for 1200px screen*/
+      .hero-text-box {
+        width: 100%;
+        padding: 0 2%;
+      }
+
+      .row {
+        padding: 0 2%;
+      }
+    }
+
+
+    /********  IPADS PHONES 768 TO 1023PX   ********/
+    @media only screen and (max-width:1023px) {
+
+      /*for 1023px screen*/
+      body {
+        font-size: 16px;
+        width: 100%;
+      }
+
+      .hero-text-box {
+        margin-left: 20px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .long-copy {
+        width: 80%;
+        margin-left: 10%;
+      }
+
+      .meal-photo img:hover {
+        transform: scale(1.1);
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+      }
+
+      .steps-box {
+        margin-top: 30px;
+      }
+
+      .work-step {
+        margin-bottom: 10px;
+        width: 145%;
+      }
+
+      .steps-box:last-child {
+        margin-top: 60px;
+      }
+
+      .btn-app img {
+        height: 40px;
+        width: 110px;
+        margin-right: 6px;
+        margin-top: 10px;
+        border-radius: 5px;
+      }
+
+      .app-screen {
+        width: 70%;
+        margin-left: 0px;
+        height: 370px;
+      }
+
+      .section-meals {
+        margin-top: -50px;
+      }
+
+      .section-steps {
+        margin-bottom: -60px;
+      }
+
+      .icon-small {
+        display: none;
+      }
+
+      .section-cities {
+        font-size: 90%;
+      }
+
+      .section-cities h3 {
+        width: 100%;
+        font-size: 95%;
+        font-weight: 700;
+      }
+
+      .section-testimonal h2 {
+        font-size: 171%;
+      }
+
+      .contact-form {
+        width: 100%;
+        margin-left: 100px;
+      }
+
+      .tick {
+        width: 10px;
+        height: 10px;
+      }
+
+      .plan-box {
+        margin-left: 0%;
+        width: 100%;
+        height: 400px;
+      }
+
+      .plan-price {
+        font-size: 250%;
+      }
+
+      .plan-box div {
+        padding: 5px;
+      }
+
+      .plan-price-meal {
+        font-size: 82%;
+      }
+
+      .plan-box div a {
+        font-size: 15px;
+        margin-left: 13px;
+      }
+
+      .plan-box:hover {
+        transform: scale(0.95);
+        box-shadow: 0px 0px 20px 2px rgba(155, 146, 146, 0.9);
+      }
+
+      .plan-box ul {
+        margin-bottom: 40px;
+      }
+
+      .plan-box ul li {
+        padding: 0px 0px;
+      }
+
+      footer .row {
+        margin-left: -35px;
+      }
+
+      /* footer p {
+        margin-top: 70px;
+      } */
+
+      .footer-nav li,
+      .social-links li {
+        margin-right: 5px;
+      }
+
+      footer .social-links img {
+        width: 20px;
+        margin-left: 100%;
+        height: auto;
+      }
+
+      .span-for-footer {
+        width: 49%;
+      }
+    }
+
+    /********   LARGE PHONES 401 TO 767PX   ********/
+    @media only screen and (max-width:767px) {
+
+      /*for 767px screen*/
+      body {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 30px 0;
+      }
+
+      .row,
+      .hero-text-box {
+        padding: 0 4%;
+      }
+
+      .col {
+        width: 100%;
+        margin: 0 0 4% 0;
+      }
+
+      .main-nav {
+        float: left;
+        margin-top: 25px;
+        margin-left: 25px;
+      }
+
+      .main-nav li {
+        display: block;
+      }
+
+      .main-nav li a:link,
+      .main-nav li a:visited {
+        display: block;
+        border: 0;
+        padding: 5px 0;
+        font-size: 100%;
+      }
+
+      .sticky .main-nav {
+        margin-top: 18px;
+      }
+
+      .sticky .main-nav li a:link,
+      .sticky .main-nav li a:visited {
+        padding: 10px 0px;
+      }
+
+      .sticky .mobile-nav-icon img {
+        filter: invert(0);
+        -webkit-filter: invert(0);
+      }
+
+      .long-copy {
+        width: 100%;
+        margin-left: 0%;
+      }
+
+      h1 {
+        font-size: 150%;
+      }
+
+      h2 {
+        font-size: 140%;
+      }
+
+      .work-step {
+        margin-bottom: 5px;
+        width: 100%;
+        margin-left: -40px;
+      }
+
+      .app-screen {
+        width: 33%;
+        margin-right: 33%;
+        height: 310px;
+        margin-bottom: -40px;
+      }
+
+      .btn-app {
+        margin-left: 30px;
+      }
+
+      .icon-big {
+        display: block;
+        color: #e67e22;
+        margin: 20px 20px;
+        margin-left: 40%;
+      }
+
+      .section-meals {
+        margin-bottom: 20px;
+      }
+
+      .section-features .row h3 {
+        margin-left: 24%;
+      }
+
+      .section-features {
+        margin-bottom: 50px;
+      }
+
+      /* .section-cities {
+        margin-bottom: 390%;
+      } */
+
+      .icon-small {
+        display: unset;
+      }
+
+      .section-cities {
+        font-size: 90%;
+      }
+
+      .box h3 {
+        font-size: 130%;
+        font-weight: 500;
+      }
+
+      .icon-small {
+        margin-top: 10px;
+      }
+
+      .section-cities .box {
+        margin-bottom: 50px;
+      }
+
+      .section-testimonal h2 {
+        line-height: 30px;
+      }
+
+      .section-testimonal .span-1-of-3 {
+        width: 100%;
+        margin: 0 0 4% 0;
+        margin-bottom: 50px;
+      }
+
+      .tick {
+        width: 15px;
+        height: 15px;
+        padding: 4px;
+      }
+
+      .plan-price-meal {
+        font-size: 90%;
+      }
+
+      .plan-price span {
+        font-size: 30%;
+        font-weight: 300;
+      }
+
+      .plan-box div {
+        padding: 20px;
+      }
+
+      .section-plans div li {
+        font-size: 18px;
+      }
+
+      .plan-box ul {
+        margin-bottom: 10px;
+      }
+
+      .plan-box div a {
+        margin-left: 30%;
+      }
+
+      .span-2-of-3 {
+        width: 50%;
+      }
+
+      .contact-form {
+        width: 100%;
+        margin-left: 20px;
+      }
+    }
+
+    /********   SMALL PHONES 0 TO 400PX   ********/
+    @media only screen and (max-width:480px) {
+
+      /*for 400px screen*/
+      section {
+        padding: 25px 0;
+      }
+
+      .contact-form {
+        width: 100%;
+        margin-left: 5px;
+      }
+
+      .span-2-of-3 {
+        width: 55%;
+      }
+
+      /* .section-cities {
+        margin-bottom: 470%;
+      } */
+
+      .section-steps {
+        margin-top: 40px;
+      }
+
+      .footer-nav li {
+        display: block;
+      }
+
+      .social-links {
+        margin-top: -30px;
+      }
+    }
+
+    blockquote {
+      border: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <div class="background">
+        </div>
+        <a><img class="circle" src="me 2.png"></a>
+        <a><span class="white-text name">Johar Khan</span></a>
+        <a><span class="white-text email"><em>Web Dev</em></span></a>
+      </div>
+    </li>
+    <li class="aim-group"><img src="aim 2.png" class="aim" alt="">
+      <p class="aim-text">Hard-working individual with proficiency in HTML, JavaScript and CSS, as well as ability to
+        communicate effectively in a team setting.
+      <p>
+    </li>
+    <li>
+      <a class="project tooltipped" data-tooltip="Slide below images left or right" data-position="top"><img
+          src="project.png" alt="" class="aim"> Projects</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li class="images">
+      <div class="carousel">
+        <a class="carousel-item" href="https://tours-project.herokuapp.com/" target="_blank"><img
+            src="https://michaeljamie.github.io/advanced-css-sass-less-course/Natours/img/Natours-Logo-green.png"
+            class="tooltipped" data-tooltip="Tours Project" data-position="top"></a>
+        <a class="carousel-item" href="#header"><img src="https://www.ianposton.com/omnifood/resources/img/logo.png"
+            class="tooltipped" data-tooltip="Omni Food Site" data-position="top"></a>
+        <a class="carousel-item" href="https://codepen.io/Single-Byte/pen/MWKoNwe?editors=1000" target="_blank"><img
+            src="https://jasminesavage.com/wp-content/uploads/2019/09/finance_icon_png_491184.png" class="tooltipped"
+            data-tooltip="Budget App" data-position="top"></a>
+      </div>
+    </li>
+    <li class="icon-group">
+      <!-- <i class="material-icons icons">delete</i> -->
+      <a href="https://github.com/single-byte" target="_blank" class='links'>
+        <ion-icon name="logo-github" class="icons git tooltipped" data-tooltip="Github" data-position="top"></ion-icon>
+      </a>
+
+      <a href="https://stackoverflow.com/users/13256774/single-byte" target="_blank" class='links'>
+        <ion-icon name="logo-stackoverflow" class="icons stack tooltipped" data-tooltip="Stack Overflow"
+          data-position="top"></ion-icon>
+      </a>
+
+      <a href="https://www.facebook.com/johar.khan.16547" class="links" target="_blank">
+        <ion-icon name="logo-facebook" class="icons fb tooltipped" data-tooltip="Facebook" data-position="top">
+        </ion-icon>
+      </a>
+
+      <a href="#" class="links" target="_blank">
+        <ion-icon name="at-circle" class="icons email tooltipped" data-tooltip="joharkhan1999@gmail.com"
+          data-position="top"></ion-icon>
+      </a>
+      <a href="#" class="links" target="_blank">
+        <ion-icon name="logo-whatsapp" class="icons wp tooltipped" data-tooltip="+92 311 8885245" data-position="top">
+        </ion-icon>
+      </a>
+      <a href="https://codepen.io/Single-Byte" class="links" target="_blank">
+        <ion-icon name="logo-codepen" class="pen icons tooltipped" data-tooltip="CodePen" data-position="top">
+        </ion-icon>
+      </a>
+      <div class="bottom-text">
+        <ion-icon name="code-slash" class="aim"></ion-icon><em>with</em>
+        <ion-icon name="heart" class="aim"></ion-icon><em>by</em> <em>Johar Khan</em>
+      </div>
+    </li>
+  </ul>
+
+  <header>
+    <div class="row">
+      <a href="#">
+        <img src="http://www.webdesigncourse.co/omnifood/resources/img/logo-white.png" alt="Omni Food Logo"
+          class="logo"></a>
+      <ul class="main-nav js--main--nav">
+        <li><a href="#features">Food Delivery</a></li>
+        <li><a href="#steps">How it works</a></li>
+        <li><a href="#cities">Our cities</a></li>
+        <li><a href="#plans">Sign up</a></li>
+        <li> <a href="#" data-target="slide-out" class="sidenav-trigger tooltipped" data-tooltip="Profile"
+            data-position="bottom"><i class="material-icons">menu</i></a></li>
+        <!-- </ul> -->
+    </div>
+    <div class="hero-text-box">
+      <h1>Goodbye junk food.<br>Hello super healthy meals.</h1>
+      <a class="btn-manual btn-full js--scroll-to-plans" href="#btn">I'm hungry</a>
+      <a class="btn-manual btn-ghost js--scroll-to-start" href="#btn">Show me more</a><br>
+    </div>
+  </header>
+
+  <section class="section-features js--section--features" id="features">
+    <div class="row">
+      <h2>Get food fast &mdash; not fast food</h2>
+      <p class="long-copy clearFix">
+        Hello, we're Omnifood, your new premium food delivery service.
+        We know you're always busy. No time for cooking. So let us take
+        are of that, we're really good at it, we promise!
+      </p>
+    </div>
+    <div class="row clearFix">
+      <div class="col span-1-of-4">
+        <img src="https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/9369617921537355863-512.png"
+          class="icon-big" alt="heart" width="40px" height="40px">
+        <h3>Up to 365 days/year</h3>
+        <p>
+          Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can
+          also choose to order more flexibly if that's your style
+        </p>
+      </div>
+      <div class="col span-1-of-4">
+        <img src="https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/19288609951530513409-512.png"
+          class="icon-big" alt="heart" width="40px" height="40px">
+        <h3>Ready in 20 minutes</h3>
+        <p>
+          You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We
+          work with the best chefs in each town to ensure that you're 100% happy.
+        </p>
+      </div>
+      <div class="col span-1-of-4">
+        <img src="https://static.thenounproject.com/png/186716-200.png" class="icon-big" alt="heart" width="40px"
+          height="40px">
+        <h3>100% organic food</h3>
+        <p>
+          All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics.
+          Good for your health, the environment, and it also tastes better!
+        </p>
+      </div>
+      <div class="col span-1-of-4">
+        <img src="https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/3869891641538117463-64.png"
+          class="icon-big" alt="heart" width="40px" height="40px">
+        <h3>Order anything</h3>
+        <p>
+          We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our
+          menu containing over 100 delicious meals. It's up to you!
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-meals clearFix">
+    <ul class="meals-showcase clearFix">
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/1.jpg" alt="">
+        </figure>
+      </li>
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/2.jpg" alt="">
+        </figure>
+      </li>
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/3.jpg" alt="">
+        </figure>
+      </li>
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/4.jpg" alt="">
+        </figure>
+      </li>
+    </ul>
+    <ul class="meals-showcase clearFix">
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/5.jpg" alt="">
+        </figure>
+      </li>
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/6.jpg" alt="">
+        </figure>
+      </li>
+      <li>
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/7.jpg" alt="">
+        </figure>
+      </li>
+      <li class="clearFix">
+        <figure class="meal-photo">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/8.jpg" alt="">
+        </figure>
+      </li>
+    </ul>
+  </section>
+
+  <section class="forbackground clearFix">
+    <section class="section-steps clearFix" id="steps">
+      <div class="row">
+        <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+      </div>
+      <div class="row">
+        <div class="col span-2-of-4 steps-box">
+          <img src="http://www.webdesigncourse.co/omnifood/resources/img/app-iPhone.png" alt="iphone"
+            class="app-screen">
+        </div>
+        <div class="col span-2-of-4 steps-box">
+          <div class="work-step">
+            <div>1</div>
+            <p>Choose the subscription plan that best fits your needs and sign up today.</p>
+          </div><br>
+          <div class="work-step">
+            <div>2</div>
+            <p>Order your delicious meal using our mobile app or website. Or you can even call us!</p>
+          </div><br>
+          <div class="work-step">
+            <div>3</div>
+            <p>Enjoy your meal after less than 20 minutes. See you the next time!</p>
+          </div>
+          <br>
+          <a href="#btn-app" class="btn-app"><img
+              src="http://www.webdesigncourse.co/omnifood/resources/img/download-app.svg" alt="appstore"></a>
+          <a href="#btn-app" class="btn-app"><img
+              src="http://www.webdesigncourse.co/omnifood/resources/img/download-app-android.png" alt="playstore"></a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="section-cities" id="cities">
+    <div class="row">
+      <h2>We're currently in these cities</h2>
+    </div>
+    <div class="row">
+      <div class="col span-1-of-4 box">
+        <img src="http://www.webdesigncourse.co/omnifood/resources/img/lisbon-3.jpg" alt="">
+        <h3>Lisbon</h3>
+        <img src="https://image.flaticon.com/icons/svg/74/74472.svg" alt="people" class="icon-small">
+        1600+ happy eaters <br>
+        <img src="https://image.flaticon.com/icons/svg/2930/2930068.svg" alt="chefs" class="icon-small">
+        60+ top chefs <br>
+        <img src="https://image.flaticon.com/icons/svg/733/733635.svg" alt="chefs" class="icon-small">
+        <a href="#twitter" class="twitter">@omnifood_lx</a>
+      </div>
+      <div class="col span-1-of-4 box">
+        <img src="http://www.webdesigncourse.co/omnifood/resources/img/san-francisco.jpg" alt="">
+        <h3>San Francisco</h3>
+        <img src="https://image.flaticon.com/icons/svg/74/74472.svg" alt="people" class="icon-small">
+        3700+ happy eaters <br>
+        <img src="https://image.flaticon.com/icons/svg/2930/2930068.svg" alt="chefs" class="icon-small">
+        160+ top chefs <br>
+        <img src="https://image.flaticon.com/icons/svg/733/733635.svg" alt="chefs" class="icon-small">
+        <a href="#twitter" class="twitter">@omnifood_sf</a>
+      </div>
+      <div class="col span-1-of-4 box">
+        <img src="https://www.ianposton.com/omnifood/resources/img/berlin.jpg" alt="">
+        <h3>berlin</h3>
+        <img src="https://image.flaticon.com/icons/svg/74/74472.svg" alt="people" class="icon-small">
+        2300+ happy eaters <br>
+        <img src="https://image.flaticon.com/icons/svg/2930/2930068.svg" alt="chefs" class="icon-small">
+        110+ top chefs <br>
+        <img src="https://image.flaticon.com/icons/svg/733/733635.svg" alt="chefs" class="icon-small">
+        <a href="#twitter" class="twitter">@omnifood_berlin</a>
+      </div>
+      <div class="col span-1-of-4 box">
+        <img src="http://www.webdesigncourse.co/omnifood/resources/img/london.jpg" alt="">
+        <h3>london</h3>
+        <img src="https://image.flaticon.com/icons/svg/74/74472.svg" alt="people" class="icon-small">
+        1200+ happy eaters <br>
+        <img src="https://image.flaticon.com/icons/svg/2930/2930068.svg" alt="chefs" class="icon-small">
+        50+ top chefs <br>
+        <img src="https://image.flaticon.com/icons/svg/733/733635.svg" alt="chefs" class="icon-small">
+        <a href="#twitter" class="twitter">@omnifood_london</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-testimonal clearFix">
+    <div class="row">
+      <h2>Our customers can't live without us</h2>
+    </div>
+    <div class="row">
+      <div class="col span-1-of-3">
+        <blockquote> Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so
+          Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!</blockquote>
+        <br><cite><abbr title="customer"><img src="http://www.webdesigncourse.co/omnifood/resources/img/customer-1.jpg"
+              alt=""></abbr>Alberto Duncan</cite>
+      </div>
+      <div class="col span-1-of-3">
+        <blockquote>Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food
+          delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!</blockquote>
+        <br><cite><abbr title="customer"><img src="http://www.webdesigncourse.co/omnifood/resources/img/customer-2.jpg"
+              alt=""></abbr>Joana Silva</cite>
+      </div>
+      <div class="col span-1-of-3">
+        <blockquote>I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and
+          ended up with Omnifood. Best food delivery service in the Bay Area. Keep it up!</blockquote>
+        <br><cite><abbr title="customer"><img src="http://www.webdesigncourse.co/omnifood/resources/img/customer-3.jpg"
+              alt=""></abbr>Milton Chapman</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-plans clearFix" id="plans">
+    <div class="row">
+      <h2>start eating healthy today</h2>
+    </div>
+    <div class="row">
+      <div class="col span-3-of-4">
+        <div class="plan-box">
+          <div>
+            <h3>premium</h3>
+            <p class="plan-price">$399 <span>/ month</span></p>
+            <p class="plan-price-meal">That's only 13.30$ per meal</p>
+          </div>
+          <div>
+            <ul>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">1 meal every day</li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">order 24/7 everywhere
+              </li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">Access to newest
+                creations</li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">Free delivery</li>
+            </ul>
+          </div>
+          <div>
+            <a href="#btn" class="btn-manual btn-full">Sign up now</a>
+          </div><br>
+        </div>
+      </div>
+      <div class="col span-3-of-4">
+        <div class="plan-box">
+          <div>
+            <h3>pro</h3>
+            <p class="plan-price">$149 <span>/ month</span></p>
+            <p class="plan-price-meal">That's only 14.90$ per meal</p>
+          </div>
+          <div>
+            <ul>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">1 meal 10 days/month
+              </li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">order 24/7</li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">Access to newest
+                creations</li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">Free delivery</li>
+            </ul>
+          </div>
+          <div>
+            <a href="#btn" class="btn-manual btn-ghost">Sign up now</a>
+          </div><br>
+        </div>
+      </div>
+      <div class="col span-3-of-4">
+        <div class="plan-box">
+          <div>
+            <h3>starter</h3>
+            <p class="plan-price">$19 <span>/ month</span></p>
+            <p class="plan-price-meal">&nbsp;</p>
+          </div>
+          <div>
+            <ul>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">1 meal</li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">Order from 8am to 12pm
+              </li>
+              <li><img src="https://image.flaticon.com/icons/svg/1828/1828774.svg" class="tick">Access to newest
+                creations</li>
+              <li><img src="https://image.flaticon.com/icons/svg/2107/2107593.svg" class="tick">Free delivery</li>
+            </ul>
+          </div>
+          <div>
+            <a href="#btn" class="btn-manual btn-ghost">Sign up now</a>
+          </div><br>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-form clearFix">
+    <div class="row">
+      <h2>we're happy to hear from you</h2>
+    </div>
+    <div class="row">
+      <form class="row s12">
+        <div class="row">
+          <div class="input-field message col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" type="text" class="validate" required>
+            <label for="icon_prefix">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_email" type="email" class="validate" required>
+            <label for="icon_email">E-mail</label>
+          </div>
+
+          <div class="input-field col s6">
+            <i class="material-icons prefix">search</i>
+            <select>
+              <option value="" disabled selected>How did you find us?</option>
+              <option value="1">NewsPaper</option>
+              <option value="2">Website</option>
+              <option value="3">Ad</option>
+              <option value="3">Friends</option>
+              <option value="3">Others</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span>Newsletter?</span>
+            </label>
+          </div>
+
+          <div class="input-field col s12">
+            <i class="material-icons prefix">comment</i>
+            <label for="textarea1">Drop Us a line</label>
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+          </div>
+        </div>
+        <p style="text-align: center;">
+          <a class="waves-effect waves-light btn-full btn" href="#btn"> Submit</a>
+        </p>
+      </form>
+    </div>
+
+  </section>
+
+  <footer class="clearFix">
+    <div class="row">
+      <div class="col span-for-footer">
+        <ul class="footer-nav">
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">IOS App</a></li>
+          <li><a href="#">Andriod App</a></li>
+        </ul>
+      </div>
+      <div class="col span-for-footer">
+        <ul class="social-links">
+          <li>
+            <ion-icon name="logo-facebook" class="fb" style="font-size: 30px;"></ion-icon>
+            <ion-icon name="at-circle" class="email" style="font-size: 30px;"></ion-icon>
+            <ion-icon name="logo-instagram" class="insta" style="font-size: 30px;"></ion-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <p>
+        Copyright &copy; 2020 by <a href="#" style="text-decoration: none;color:rgb(200, 199, 199);"> OmniFood</a>. All
+        rights reserved
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('select').formSelect();
+      $('.tooltipped').tooltip({
+        margin: 0,
+        transitionMovemen: 0,
+        outDuration: 100
+      });
+      $('.carousel').carousel({
+        shift: 0,
+        padding: 20
+      });
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+</body>
+
+</html>
